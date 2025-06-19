@@ -276,7 +276,7 @@ const Messages = () => {
                                   "http"
                                 )
                                 ? selectedConversation.user.avatar
-                                : `http://localhost:3000/${selectedConversation.user.avatar.replace(
+                                : `${import.meta.env.VITE_API_URL.replace("/api", "")}/${selectedConversation.user.avatar.replace(
                                     /^\/+/,
                                     ""
                                   )}`
@@ -330,7 +330,7 @@ const Messages = () => {
                             conversation.user.avatar
                               ? conversation.user.avatar.startsWith("http")
                                 ? conversation.user.avatar
-                                : `http://localhost:3000/${conversation.user.avatar.replace(
+                                : `${import.meta.env.VITE_API_URL.replace("/api", "")}/${conversation.user.avatar.replace(
                                     /^\/+/,
                                     ""
                                   )}`
@@ -382,7 +382,7 @@ const Messages = () => {
                         selectedConversation.user.avatar
                           ? selectedConversation.user.avatar.startsWith("http")
                             ? selectedConversation.user.avatar
-                            : `http://localhost:3000/${selectedConversation.user.avatar.replace(
+                            : `${import.meta.env.VITE_API_URL.replace("/api", "")}/${selectedConversation.user.avatar.replace(
                                 /^\/+/,
                                 ""
                               )}`
@@ -447,7 +447,7 @@ const Messages = () => {
                                     sender.avatar
                                       ? sender.avatar.startsWith("http")
                                         ? sender.avatar
-                                        : `http://localhost:3000/${sender.avatar.replace(
+                                        : `${import.meta.env.VITE_API_URL.replace("/api", "")}/${sender.avatar.replace(
                                             /^\/+/,
                                             ""
                                           )}`

@@ -46,12 +46,12 @@ const Header = ({ onMenuClick }) => {
               <Avatar className="h-8 w-8">
                 <AvatarImage
   src={
-    currentUser?.avatar
-      ? currentUser.avatar.startsWith("http")
-        ? currentUser.avatar
-        : `http://localhost:3000/${currentUser.avatar.replace(/^\/+/, "")}`
-      : "/placeholder.svg"
-  }
+  currentUser?.avatar
+    ? currentUser.avatar.startsWith("http")
+      ? currentUser.avatar
+      : `${import.meta.env.VITE_API_URL.replace("/api", "")}/${currentUser.avatar.replace(/^\/+/, "")}`
+    : "/placeholder.svg"
+}
   alt={currentUser?.name}
 />
                 <AvatarFallback>{getInitials(currentUser?.name)}</AvatarFallback>

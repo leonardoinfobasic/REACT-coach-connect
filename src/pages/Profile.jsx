@@ -15,7 +15,7 @@ export default function Profile() {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const res = await fetch("http://localhost:3000/api/users/profile", {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/users/profile`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -41,7 +41,7 @@ export default function Profile() {
   const avatarUrl = user.avatar?.startsWith("http")
     ? user.avatar
     : user.avatar
-    ? `http://localhost:3000/${user.avatar.replace(/^\/?/, "")}`
+    ? `${import.meta.env.VITE_API_URL.replace("/api", "")}/${user.avatar.replace(/^\/?/, "")}`
     : null
 
   return (

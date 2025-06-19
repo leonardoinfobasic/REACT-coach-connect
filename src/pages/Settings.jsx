@@ -77,7 +77,7 @@ const Settings = () => {
     if (currentUser?.avatar) {
       const avatarUrl = currentUser.avatar.startsWith("http")
         ? currentUser.avatar
-        : `http://localhost:3000/${currentUser.avatar.replace(/^\/+/, "")}`;
+        : `${import.meta.env.VITE_API_URL.replace("/api", "")}/${currentUser.avatar.replace(/^\/+/, "")}`;
 
       setAvatarPreview(avatarUrl);
     }
@@ -120,7 +120,7 @@ const Settings = () => {
 
     try {
       const token = localStorage.getItem("token");
-      const res = await fetch("http://localhost:3000/api/users/password", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/users/password`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -152,7 +152,7 @@ const Settings = () => {
 
   const updateUserProfile = async (updatedData) => {
     const token = localStorage.getItem("token");
-    const res = await fetch("http://localhost:3000/api/users/me", {
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/users/me`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -207,7 +207,7 @@ const Settings = () => {
     formData.append("avatar", file);
 
     try {
-      const res = await fetch("http://localhost:3000/api/users/upload-avatar", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/users/upload-avatar`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
